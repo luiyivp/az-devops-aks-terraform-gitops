@@ -1,17 +1,17 @@
 --------------------------------------------
 # Terraform State Storage Azure RM
 Resource Group: terraform-storage-rg
-Storage Account: terraformstatexlrwdrzs
+Storage Account: terraformstateasd
 Container: tfstatefiles
 
 # Manifests Folder
 terraform-manifests
 
 # System Default Working Directory
-$(System.DefaultWorkingDirectory)/terraform-manifests
+$(System.DefaultWorkingDirectory)/terraform
 $(Pipeline.Workspace)/terraform-manifests-out
 # List Files
-- bash: echo Contents in Pipeline Workspace Artifact Directory; ls -Ra $(System.DefaultWorkingDirectory)/terraform-manifests
+- bash: echo Contents in Pipeline Workspace Artifact Directory; ls -Ra $(System.DefaultWorkingDirectory)/terraform
 --------------------------------------------
 # Environment Name
 $(DEV_ENVIRONMENT)
@@ -59,4 +59,3 @@ $(Pipeline.Workspace)/terraform-manifests-out
 # QA Command Arguments for Terraform Apply
 $(Pipeline.Workspace)/terraform-manifests-out/$(QA_ENVIRONMENT)-$(Build.BuildId).out
 --------------------------------------------
-
